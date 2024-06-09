@@ -36,7 +36,7 @@ export function StoreItem({id, name, price, imgUrl}: StoreItemsProps) {
 <Button >+</Button>
 
                 </div>
-                <Button variant='danger>Remove</Button>
+                <Button variant='danger' size="sm">Remove</Button>
                 </div>}
                 </div>
             </Card.Body>
