@@ -1,6 +1,7 @@
 import { createContext, useContext, ReactNode } from "react";
 import { useState } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 //type of children property inside of react
 type ShoppingCartProviderProps = {
@@ -35,7 +36,7 @@ export function useShoppingCart(){
 //wrapper around our context that has children object. We are gonna re-render those children. 
 export function ShoppingCartProvider({children}: ShoppingCartProviderProps){
     const [isOpen, setIsOpen] = useState(false)
-    const [cartItems, setCartItems]=useState<CartItem[]>([])
+    const [cartItems, setCartItems]=useLocalStorage<CartItem[]>("shopping-cart",[])
 
     const cartQuantity = cartItems.reduce((quantity, item) => quantity + item.quantity, 0)
 
